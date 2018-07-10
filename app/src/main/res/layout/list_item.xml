@@ -11,9 +11,10 @@
      limitations under the License.
 -->
 <!-- Layout for a single list item -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!--<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="@dimen/list_item_height"
     android:gravity="center_vertical"
     android:minHeight="@dimen/list_item_height"
     android:background="@color/tan_background">
@@ -23,32 +24,103 @@
         android:layout_width="@dimen/list_item_height"
         android:layout_height="@dimen/list_item_height" />
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/wordContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="@dimen/list_item_height"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@id/miwok_image"
+        android:paddingStart="16dp">
+
+        <TextView
+            android:id="@+id/default_text"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:gravity="bottom"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            tools:text="one" />
+
+        <TextView
+            android:id="@+id/miwok_text"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_below="@id/default_text"
+            android:gravity="top"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="@android:color/white"
+            tools:text="lutti" />
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/arrow_white" />
+
+    </RelativeLayout>
+
+</LinearLayout>-->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/list_item_height"
+    android:background="@color/tan_background"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/miwok_image"
+        android:layout_width="@dimen/list_item_height"
+        android:layout_height="@dimen/list_item_height" />
+
+    <LinearLayout
+        android:id="@+id/word_container"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/list_item_height"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@id/miwok_image"
         android:orientation="vertical"
         android:paddingLeft="16dp">
 
         <TextView
-            android:id="@+id/default_text"
-            android:layout_width="wrap_content"
+            android:id="@+id/miwok_text"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="bottom"
             android:textAppearance="?android:textAppearanceMedium"
             android:textColor="@android:color/white"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:text="lutti" />
 
         <TextView
-            android:id="@+id/miwok_text"
-            android:layout_width="wrap_content"
+            android:id="@+id/default_text"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="top"
             android:textAppearance="?android:textAppearanceMedium"
-            android:textColor="@android:color/white" />
-
+            android:textColor="@android:color/white"
+            tools:text="one" />
     </LinearLayout>
 
-</LinearLayout>
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="16dp"
+        android:src="@drawable/arrow_white" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?android:attr/selectableItemBackground"/>
+</RelativeLayout>
